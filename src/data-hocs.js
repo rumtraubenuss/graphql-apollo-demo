@@ -24,7 +24,19 @@ export const withSomeValueData = graphql(gql`
 `, {
   props: ({ data: { networkStatus: { someValue, test } } }) => (
     { someValue, test }
-  ),
+  )
+});
+
+export const withRestData = graphql(gql`
+  {
+    launch @rest(type: "Launch", path: "launches/next") {
+      mission_name
+    }
+  }
+`, {
+  props: ({ data, data: { launch, loading: loadingRest } }) => (
+    { launch, loadingRest }
+  )
 });
 
 export const withMutateSomeValue = graphql(gql`
@@ -33,5 +45,5 @@ export const withMutateSomeValue = graphql(gql`
   }`, {
   props: ({ mutate }) => ({
     updateSomeValue: someValue => mutate({ variables: { someValue } }),
-  }),
+  })
 });
