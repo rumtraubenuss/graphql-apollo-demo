@@ -15,7 +15,7 @@ const restLink = new RestLink({ uri: uriRest });
 const stateLink = withClientState({
     cache,
     defaults: {
-      networkStatus: {
+      misc: {
         __typename: 'SomeValue',
         someValue: true,
         test: 24,
@@ -24,7 +24,7 @@ const stateLink = withClientState({
     resolvers: {
       Mutation: {
         updateSomeValue: (_, { someValue }, { cache }) => {
-          cache.writeData({ data: { networkStatus: { __typename: 'SomeValue', someValue } } });
+          cache.writeData({ data: { misc: { __typename: 'SomeValue', someValue } } });
           return null;
         }
       },
