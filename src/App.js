@@ -4,12 +4,12 @@ import { compose } from 'react-apollo';
 import {
   withRatesData,
   withSomeValueData,
-  withUpdateNetworkStatus,
+  withMutateSomeValue,
 } from './data-hocs';
 
-export const App = ({ loading, error, rates, someValue, test, updateNetworkStatus }) => (
+export const App = ({ loading, error, rates, someValue, test, updateSomeValue }) => (
   <div>
-    <button onClick={() => updateNetworkStatus(!someValue)}>CLICK HERE</button>
+    <button onClick={() => updateSomeValue(!someValue)}>CLICK HERE</button>
     <span>{someValue ? 'someValue is: TRUE' : 'someValue is: FALSE'}</span>
     <hr />
     <div>
@@ -21,7 +21,7 @@ export const App = ({ loading, error, rates, someValue, test, updateNetworkStatu
 );
 
 export default compose(
-  withUpdateNetworkStatus,
+  withMutateSomeValue,
   withRatesData,
   withSomeValueData,
 )(App);

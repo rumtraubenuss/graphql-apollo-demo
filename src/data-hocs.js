@@ -27,11 +27,11 @@ export const withSomeValueData = graphql(gql`
   ),
 });
 
-export const withUpdateNetworkStatus = graphql(gql`
-  mutation updateNetworkStatus($someValue: Boolean) {
-    updateNetworkStatus(someValue: $someValue) @client
+export const withMutateSomeValue = graphql(gql`
+  mutation updateSomeValue($someValue: Boolean) {
+    updateSomeValue(someValue: $someValue) @client
   }`, {
   props: ({ mutate }) => ({
-    updateNetworkStatus: someValue => mutate({ variables: { someValue } }),
+    updateSomeValue: someValue => mutate({ variables: { someValue } }),
   }),
 });
