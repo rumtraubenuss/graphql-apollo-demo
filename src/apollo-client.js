@@ -7,6 +7,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 
 const uriGraphql = 'https://w5xlvm3vzz.lp.gql.zone/graphql';
 const uriRest = 'https://api.spacexdata.com/v2/';
+
 const cache = new InMemoryCache();
 const httpLink = new HttpLink({ uri: uriGraphql });
 const restLink = new RestLink({ uri: uriRest });
