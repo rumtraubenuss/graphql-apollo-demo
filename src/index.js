@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
 
 import './index.css';
-import App from './app';
+import App from './opp';
 import client from './apollo-client';
 
 ReactDOM.render((
