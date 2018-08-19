@@ -2,22 +2,22 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
-const Launch = ({ loading, launch }) => (
-  loading ? <div>Loading</div> : <div>{launch.mission_name}</div>
-);
+export const Launch = ({ error, loading, launch}) => {
+  if (error) return <div>ERROR</div>;
+  if (loading) return <div>LOADING</div>;
+  return <div>{launch.mission_name}</div>;
+};
 
-const query = gql`
-  {
-    launch @rest(type: "Launch", path: "launches/next") {
-      mission_name
-    }
+const query = gql`{
+  launch @rest(type: "Launch", path: "launches/next") {
+    mission_name
   }
-`;
+}`;
 
 export default () => (
   <Query {...{ query }}>
-    {({ loading, data: { launch }}) => (
-      <Launch {...{ launch, loading }}/>
+    {({ loading, error, data: { launch }}) => (
+      <Launch {...{ loading, error, launch }}/>
     )}
   </Query>
 );
