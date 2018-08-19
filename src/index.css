@@ -11,3 +11,11 @@ button {
 hr {
   margin: 30px 0;
 }
+
+nav a {
+  margin-right: 1em;
+}
+
+nav a:last-child {
+  margin-right: 0;
+}

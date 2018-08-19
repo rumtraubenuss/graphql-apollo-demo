@@ -3,9 +3,9 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
 export const Launch = ({ error, loading, launch}) => {
-  if (error) return <div>ERROR</div>;
-  if (loading) return <div>LOADING</div>;
-  return <div>{launch.mission_name}</div>;
+  if (error) return <p>ERROR</p>;
+  if (loading) return <p>LOADING</p>;
+  return <p>{launch.mission_name}</p>;
 };
 
 const query = gql`{
